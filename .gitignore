@@ -1,0 +1,5 @@
+./saved_models/*
+CMakeLists.txt
+package.xml
+./scripts/runs/*
+./scripts/wandb/*

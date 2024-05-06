@@ -1,0 +1,76 @@
+<mujoco model="wheelchair">
+  <compiler angle="radian" meshdir="../meshes/"/>
+  <statistic meansize="0.185837" extent="2.12812" center="0.0837865 1.0486e-07 -0.217946"/>
+  <option gravity='0 0 -9.806' iterations='50' solver='Newton' timestep='0.002'/>
+  <default>
+    <geom contype="1" conaffinity="1" friction="0.6 0.3 0.3" rgba="0.5 0.6 0.7 1" margin="0.001" group="1"/>
+
+    <light castshadow="true" diffuse="1 1 1"/>
+    <motor ctrlrange="-33.5 33.5" ctrllimited="true"/>
+    <camera fovy="60"/>
+    <joint damping="0.01" armature="0.01"/>
+
+  </default>
+
+
+    <asset>
+    <texture name="grid" type="2d" builtin="checker" rgb1="1 1 1"
+     rgb2="1 1 1" width="640" height="480"/>
+    <material name="grid" texture="grid" texrepeat="8 8" reflectance=".2"/>
+  </asset>
+  <asset>
+    <mesh name="tennis_robot - base" file="tennis_robot - base.stl" scale="1.5 1.5 1.5"/>
+    <mesh name="tennis_robot - frame" file="tennis_robot - frame.stl" scale="1.5 1.5 1.5"/>
+    <mesh name="tennis_robot - bracket" file="tennis_robot - bracket.stl" scale="1.5 1.5 1.5"/>
+    <mesh name="tennis_robot - Wheelchair Wheel" file="tennis_robot - Wheelchair Wheel.stl" scale="1.5 1.5 1.5"/>
+    <mesh name="tennis_robot - whlsmall" file="tennis_robot - whlsmall.stl" scale="1.5 1.5 1.5"/>
+  </asset>
+  <worldbody>
+  <geom name='floor' type='plane' conaffinity='1' condim='3' contype='1' rgba="1 1 1 0.1" material='grid' pos='0 0 0' size='0 0 1'/>
+  <light directional="true" pos="10 0 10" dir="10 0 -10"/>
+    <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - base"/>
+    <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - base"/>
+    <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - frame"/>
+    <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - frame"/>
+    <body name="bracket_1" pos="-0.25 -0.15 -0.479137">
+      <joint name="bracket_joint_1" pos="0 0 0" axis="0 0 1" range="-2.6 2.6" damping="0.9"/>
+      <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - bracket"/>
+      <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - bracket"/>
+      <body name="sw_1" pos="0 0 -0.037" quat="0.707388 0 0 0.706825">
+        <joint name="support_wheel_joint_1" pos="0 0 0" axis="0 1 0" range="-2.6 2.6" damping="0.9"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - whlsmall"/>
+        <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - whlsmall"/>
+      </body>
+    </body>
+    <body name="bracket_2" pos="-0.25 0.15 -0.479137">
+      <joint name="bracket_joint_2" pos="0 0 0" axis="0 0 1" range="-2.6 2.6" damping="0.9"/>
+      <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - bracket"/>
+      <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - bracket"/>
+      <body name="sw_2" pos="0 0 -0.037" quat="0.707388 0 0 0.706825">
+        <joint name="support_wheel_joint_2" pos="0 0 0" axis="0 1 0" range="-2.6 2.6" damping="0.9"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - whlsmall"/>
+        <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - whlsmall"/>
+      </body>
+    </body>
+    <body name="bracket_3" pos="0.33 0 -0.479137">
+      <joint name="bracket_joint_3" pos="0 0 0" axis="0 0 1" range="-2.6 2.6" damping="0.9"/>
+      <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - bracket"/>
+      <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - bracket"/>
+      <body name="sw_3" pos="0 0 -0.037" quat="0.707388 0 0 0.706825">
+        <joint name="support_wheel_joint_3" pos="0 0 0" axis="0 1 0" range="-2.6 2.6" damping="0.9"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - whlsmall"/>
+        <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - whlsmall"/>
+      </body>
+    </body>
+    <body name="wheel_1" pos="0 -0.45 -0.2" quat="0.861629 0.507538 0 0">
+      <joint name="wheel_joint_1" pos="0 0 0" axis="0 0 1" range="-2.6 2.6" damping="0.9"/>
+      <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - Wheelchair Wheel"/>
+      <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - Wheelchair Wheel"/>
+    </body>
+    <body name="wheel_2" pos="0 0.45 -0.2" quat="0.861629 -0.507538 0 0">
+      <joint name="wheel_joint_2" pos="0 0 0" axis="0 0 1" range="-2.6 2.6" damping="0.9"/>
+      <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - Wheelchair Wheel"/>
+      <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - Wheelchair Wheel"/>
+    </body>
+  </worldbody>
+</mujoco>

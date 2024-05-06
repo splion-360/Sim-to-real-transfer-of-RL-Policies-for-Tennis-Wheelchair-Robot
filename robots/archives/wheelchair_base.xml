@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+
+<robot name="wheelchair">
+
+  <mujoco>
+        <compiler 
+        meshdir="../meshes/" 
+        balanceinertia="true" 
+        discardvisual="false" />
+  </mujoco>
+
+  <gazebo>
+    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
+
+
+  <gazebo reference="wam_base">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <link name="wam_base">
+    <inertial>
+      <origin xyz="-0.02 -0.1407 0.266"/>
+      <mass value="9.97"/>
+      <inertia ixx="0.10916849" ixy="0.02557874" ixz="-0.00640270" iyy="0.11760385" iyz="-0.00161433" izz="0.18294303"/>
+    </inertial>
+    <visual>
+      <material name="WAMGrey">
+        <color rgba="0.7 0.7 0.7 0.0"/>
+      </material>
+      <geometry>
+        <mesh filename="package://wam_model/meshes/tennis_robot - Part 1.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://wam_model/meshes/tennis_robot - Part 1.stl"/>
+      </geometry>
+    </collision>
+  </link>

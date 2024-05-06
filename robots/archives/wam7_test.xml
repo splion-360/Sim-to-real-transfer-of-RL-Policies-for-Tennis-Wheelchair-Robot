@@ -1,0 +1,166 @@
+<mujoco model="wam">
+  <compiler angle="radian" meshdir="../meshes/"/>
+    <default>
+    <geom contype="1" conaffinity="1" friction="0.6 0.3 0.3" rgba="0.5 0.6 0.7 1" margin="0.001" group="1"/>
+
+    <light castshadow="true" diffuse="1 1 1"/>
+    <motor ctrlrange="-33.5 33.5" ctrllimited="true"/>
+    <camera fovy="60"/>
+    <joint damping="0.01" armature="0.01"/>
+
+  </default>
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" rgb1="1 1 1"
+     rgb2="1 1 1" width="640" height="480"/>
+    <material name="grid" texture="grid" texrepeat="8 8" reflectance=".2"/>
+  </asset>
+
+  <statistic meansize="0.346048" extent="3.1638" center="0.183786 1.0486e-07 0.810494"/>
+  <asset>
+    <mesh name="base_link_fine" file="base_link_fine.stl"/>
+    <mesh name="base_link_convex" file="base_link_convex.stl"/>
+    <mesh name="shoulder_link_fine" file="shoulder_link_fine.stl"/>
+    <mesh name="shoulder_link_convex_decomposition" file="shoulder_link_convex_decomposition.stl"/>
+    <mesh name="shoulder_pitch_link_fine" file="shoulder_pitch_link_fine.stl"/>
+    <mesh name="shoulder_pitch_link_convex" file="shoulder_pitch_link_convex.stl"/>
+    <mesh name="upper_arm_link_fine" file="upper_arm_link_fine.stl"/>
+    <mesh name="upper_arm_link_convex_decomposition" file="upper_arm_link_convex_decomposition.stl"/>
+    <mesh name="elbow_link_fine" file="elbow_link_fine.stl"/>
+    <mesh name="elbow_link_convex" file="elbow_link_convex.stl"/>
+    <mesh name="forearm_link_fine" file="forearm_link_fine.stl"/>
+    <mesh name="forearm_link_convex_decomposition" file="forearm_link_convex_decomposition.stl"/>
+    <mesh name="wrist_yaw_link_fine" file="wrist_yaw_link_fine.stl"/>
+    <mesh name="wrist_yaw_link_convex_decomposition" file="wrist_yaw_link_convex_decomposition.stl"/>
+    <mesh name="wrist_pitch_link_fine" file="wrist_pitch_link_fine.stl"/>
+    <mesh name="wrist_pitch_link_convex_decomposition" file="wrist_pitch_link_convex_decomposition.stl"/>
+    <mesh name="wrist_palm_link_fine" file="wrist_palm_link_fine.stl"/>
+    <mesh name="wrist_palm_link_convex" file="wrist_palm_link_convex.stl"/>
+    <mesh name="racket_new" file="racket_new.stl" scale="1.2 1.2 1.2"/>
+    <mesh name="tennis_robot - base" file="tennis_robot - base.stl" scale="1.5 1.5 1.5"/>
+    <mesh name="tennis_robot - frame" file="tennis_robot - frame.stl" scale="1.5 1.5 1.5"/>
+    <mesh name="tennis_robot - bracket" file="tennis_robot - bracket.stl" scale="1.5 1.5 1.5"/>
+    <mesh name="tennis_robot - Wheelchair Wheel" file="tennis_robot - Wheelchair Wheel.stl" scale="1.5 1.5 1.5"/>
+    <mesh name="tennis_robot - whlsmall" file="tennis_robot - whlsmall.stl" scale="1.5 1.5 1.5"/>
+    <mesh name="vlp16_mount" file="vlp16_mount.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="vlp16_mount1" file="vlp16_mount.stl" scale="0.0009 0.0009 0.0009"/>
+    <mesh name="vlp_16" file="vlp_16.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="vlp_161" file="vlp_16.stl" scale="0.0009 0.0009 0.0009"/>
+    <mesh name="zed2" file="zed2.stl"/>
+    <mesh name="zed21" file="zed2.stl" scale="0.92 0.92 0.92"/>
+  </asset>
+  <worldbody>
+    <light name="spotlight" mode="targetbodycom" target="base_link" pos="0 -1 2"/>
+    <light directional="true" pos="10 0 10" dir="10 0 -10"/>
+    <!-- <light pos="0 0 .6"/> -->
+    <camera name="track" mode="trackcom" pos="0 -1.3 1.6" xyaxes="1 0 0 0 0.707 0.707"/>
+    <geom name='floor' type='plane' conaffinity='1' condim='3' contype='1' rgba="1 1 1 0.1" material='grid' pos='0 0 0' size='0 0 1'/>
+
+    <body name="base_link">
+      <joint name="base_link_joint" type="free"/>
+      <geom pos="0.0793752 0 0.001" quat="0 0 0 1" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 0" mesh="base_link_fine"/>
+      <geom pos="0.0793752 0 0.001" quat="0 0 0 1" type="mesh" rgba="0.7 0.7 0.7 0" mesh="base_link_convex"/>
+      <geom pos="0.1 0 0.15" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - base"/>
+      <geom pos="0.1 0 0.15" type="mesh" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - base"/>
+      <geom pos="0.1 0 0.15" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - frame"/>
+      <geom pos="0.1 0 0.15" type="mesh" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - frame"/>
+      <geom pos="0.29739 0 0.04165" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0 0 0 1" mesh="vlp16_mount"/>
+      <geom pos="0.29739 0 0.04165" type="mesh" rgba="0 0 0 1" mesh="vlp16_mount1"/>
+      <geom pos="0.29739 0 0.04165" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.1725 0.1059 0.7019 1" mesh="vlp_16"/>
+      <geom pos="0.29739 0 0.04265" type="mesh" rgba="0.1725 0.1059 0.7019 1" mesh="vlp_161"/>
+      <geom pos="0.433359 0 0.165" quat="0.999688 0 0.0249974 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.25 0.25 0.25 0.99" mesh="zed2"/>
+      <geom pos="0.433359 0 0.165" quat="0.999688 0 0.0249974 0" type="mesh" rgba="0.25 0.25 0.25 0.99" mesh="zed21"/>
+      <body name="wam/shoulder_yaw_link" pos="0.0793752 0 0.347" quat="0 0 0 1">
+        <inertial pos="-0.00443422 -0.00066489 -0.128904" quat="0.69566 0.716713 -0.0354863 0.0334839" mass="10.76" diaginertia="0.135089 0.113095 0.0904426"/>
+        <joint name="wam/base_yaw_joint" pos="0 0 0" axis="0 0 1" range="-2.6 2.6" damping="0.9"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="shoulder_link_fine"/>
+        <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="shoulder_link_convex_decomposition"/>
+        <body name="wam/shoulder_pitch_link" quat="0.707107 -0.707107 0 0">
+          <inertial pos="-0.00236981 -0.0154211 0.0310561" quat="0.961794 0.273112 0.0169316 -0.00866592" mass="3.87" diaginertia="0.0214195 0.0167127 0.0126452"/>
+          <joint name="wam/shoulder_pitch_joint" pos="0 0 0" axis="0 0 1" range="-2 2" damping="0.25"/>
+          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="shoulder_pitch_link_fine"/>
+          <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="shoulder_pitch_link_convex"/>
+          <body name="wam/upper_arm_link" quat="0.707107 0.707107 0 0">
+            <inertial pos="-0.0382586 3.309e-05 -0.207508" quat="0.762049 -0.0143038 -0.0170822 0.647136" mass="1.8" diaginertia="0.0592718 0.0592207 0.00313419"/>
+            <joint name="wam/shoulder_yaw_joint" pos="0 0 0" axis="0 0 1" range="-2.8 2.8" damping="0.75"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="upper_arm_link_fine"/>
+            <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="upper_arm_link_convex_decomposition"/>
+            <body name="wam/forearm_link" pos="0.045 0 0.55" quat="0.707107 -0.707107 0 0">
+              <inertial pos="0.00498512 0.132717 0.00022942" quat="0.704281 0.706326 -0.0180333 -0.0690353" mass="2.4" diaginertia="0.0151047 0.0148285 0.00275805"/>
+              <joint name="wam/elbow_pitch_joint" pos="0 0 0" axis="0 0 1" range="-0.9 3.34159" damping="0.4"/>
+              <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="elbow_link_fine"/>
+              <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="elbow_link_convex"/>
+              <geom pos="-0.045 -0.073 0" quat="0.707107 0.707107 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="forearm_link_fine"/>
+              <geom pos="-0.045 -0.073 0" quat="0.707107 0.707107 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="forearm_link_convex_decomposition"/>
+              <body name="wam/wrist_yaw_link" pos="-0.045 -0.3 0" quat="0 0 0.707107 -0.707107">
+                <inertial pos="8.921e-05 0.00435824 -0.00511217" quat="0.0909475 0.698784 0.0855721 0.704348" mass="0.124" diaginertia="7.67393e-05 6.17828e-05 5.02879e-05"/>
+                <joint name="wam/wrist_yaw_joint" pos="0 0 0" axis="0 0 1" range="-4.55 1.35" damping="0.25"/>
+                <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="wrist_yaw_link_fine"/>
+                <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="wrist_yaw_link_convex_decomposition"/>
+                <body name="wam/wrist_pitch_link" quat="0 0 -0.707107 0.707107">
+                  <inertial pos="-0.00012262 0.0246834 0.0170319" quat="0.994683 0.102878 0.0011651 -0.00451961" mass="0.4179" diaginertia="0.000555168 0.00046317 0.000234072"/>
+                  <joint name="wam/wrist_pitch_joint" pos="0 0 0" axis="0 0 1" range="-1.5707 1.5707" damping="0.05"/>
+                  <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="wrist_pitch_link_fine"/>
+                  <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="wrist_pitch_link_convex_decomposition"/>
+                  <body name="wam/wrist_palm_link" quat="0.707107 0.707107 0 0">
+                    <inertial pos="0 0 0.0575622" quat="0.707107 0 0 0.707107" mass="0.00201" diaginertia="0.000306944 0.000208704 0.00020861"/>
+                    <joint name="wam/palm_yaw_joint" pos="0 0 0" axis="0 0 1" range="-2.95 2.95" damping="0.05"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="wrist_palm_link_fine"/>
+                    <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="wrist_palm_link_convex"/>
+                    <geom pos="0 0 0.07" quat="0.707107 0 0 0.707107" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="racket_new"/>
+                    <geom pos="0 0 0.07" quat="0.707107 0 0 0.707107" type="mesh" rgba="0.7 0.7 0.7 1" mesh="racket_new"/>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="bracket_1" pos="-0.15 -0.15 -0.329137">
+        <joint name="bracket_joint_1" pos="0 0 0" axis="0 0 1" range="-2.6 2.6" damping="0.9"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - bracket"/>
+        <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - bracket"/>
+        <body name="sw_1" pos="0 0 -0.037" quat="0.707388 0 0 0.706825">
+          <joint name="support_wheel_joint_1" pos="0 0 0" axis="0 1 0" range="-2.6 2.6" damping="0.9"/>
+          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - whlsmall"/>
+          <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - whlsmall"/>
+        </body>
+      </body>
+      <body name="bracket_2" pos="-0.15 0.15 -0.329137">
+        <joint name="bracket_joint_2" pos="0 0 0" axis="0 0 1" range="-2.6 2.6" damping="0.9"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - bracket"/>
+        <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - bracket"/>
+        <body name="sw_2" pos="0 0 -0.037" quat="0.707388 0 0 0.706825">
+          <joint name="support_wheel_joint_2" pos="0 0 0" axis="0 1 0" range="-2.6 2.6" damping="0.9"/>
+          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - whlsmall"/>
+          <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - whlsmall"/>
+        </body>
+      </body>
+      <body name="bracket_3" pos="0.43 0 -0.329137">
+        <joint name="bracket_joint_3" pos="0 0 0" axis="0 0 1" range="-2.6 2.6" damping="0.9"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - bracket"/>
+        <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - bracket"/>
+        <body name="sw_3" pos="0 0 -0.037" quat="0.707388 0 0 0.706825">
+          <joint name="support_wheel_joint_3" pos="0 0 0" axis="0 1 0" range="-2.6 2.6" damping="0.9"/>
+          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - whlsmall"/>
+          <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - whlsmall"/>
+        </body>
+      </body>
+      <body name="wheel_1" pos="0.1 -0.45 -0.05" quat="0.861629 0.507538 0 0">
+        <joint name="wheel_joint_1" pos="0 0 0" axis="0 0 1" range="-2.6 2.6" damping="0.9"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - Wheelchair Wheel"/>
+        <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - Wheelchair Wheel"/>
+      </body>
+      <body name="wheel_2" pos="0.1 0.45 -0.05" quat="0.861629 -0.507538 0 0">
+        <joint name="wheel_joint_2" pos="0 0 0" axis="0 0 1" range="-2.6 2.6" damping="0.9"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - Wheelchair Wheel"/>
+        <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tennis_robot - Wheelchair Wheel"/>
+      </body>
+    </body>
+  </worldbody>
+  
+  <!-- <keyframe>
+    <key name="home"
+      qpos="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+  </keyframe> -->
+
+</mujoco>

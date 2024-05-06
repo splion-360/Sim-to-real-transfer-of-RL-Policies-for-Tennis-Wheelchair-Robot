@@ -1,0 +1,32 @@
+mujoco:
+  camera: 
+    - -27.212
+    - -0.006
+    - 16.410
+  radius: 0.5
+  error: 1e-7
+  reset_noise_scale: 5e-3
+  coordinate_limits: 6
+  frame_skip: 4
+  env_length: 8
+
+dynamics:
+  max_linear_velocity: 3 
+  max_angular_velocity: 2
+  goal_velocity: 1
+  max_angular_acceleration: 1
+  max_linear_acceleration: 2.5
+  wheel_torque_limit: 6
+
+differential_drive:
+  axle_length: 1.2035    # Original length x scaling factor (0.92575*1.3)
+  wheel_diameter: 0.7440 # Original diameter x scaling factor (0.62*1.2)
+
+reward_scales:
+  control_cost: 1e-3
+  distance_incentive: 500
+  terminal_payoff:
+    - -100
+    -  120
+  grace_time_period: 5
+  inTimeCost: 1e-2
