@@ -10,7 +10,7 @@ Pro Tennis Wheelchair. This works aims at developing RL policies for the robot t
 performance.
 
 <br>
-<img src="./assets/gifs/real.gif" alt="environment" width="400" height="390"/> <img src="./assets/images/rl.png" alt="environment" width="450"/>
+<img src="./assets/gifs/real.gif" alt="environment" width="400" height="390"/> 
 
 ## Installation 
 Make sure you have conda installed in your system before proceeeding. Use the following command to create a new conda environment to run the below scripts. 
@@ -21,12 +21,12 @@ conda activate wtr
 
 ## Overview
 <p>
-We currently provide support for four environments and the instructions to execute them are organized as follows: 
+We currently provide support for the following environments and the instructions to execute them are organized as: 
 
 - [Navigation Task](#1-navigation-task)
 - [Reach Task](#2-reach-task) 
 
-
+Check out the [report](.papers/reports.pdf) for more information.
 </p>
 
 
@@ -40,7 +40,7 @@ is to teach the ESTHER to navigate to an arbitrarily sampled goal position $(x,y
 
 
 <br>
-<img src="./assets/gifs/blockreacher.gif" alt="environment" width="500"/>  <img src="./assets/images/env.png" alt="environment" width="300" height="320"/>
+<img src="./assets/gifs/blockreacher.gif" alt="environment" width="500"/>  
 
 #### Usage 
 Check out the `scripts/navigaterobot_v2.py` to get started with the environment details i.e, rewards and the observation space. Support for logging using `wandb` is provided along with the `tensorboard`. For starters, you can train the environment by: 
@@ -61,7 +61,7 @@ joint torques. Similar to the previous task, episodes will be terminated if the 
 
 
 <br>
-<img src="./assets/gifs/armreacher.gif" alt="environment" width="500"/>  <img src="./assets/images/bodymodel.png" alt="environment" width="400" height="390"/>
+<img src="./assets/gifs/armreacher.gif" alt="environment" width="500"/> 
 
 #### Usage 
 Check out the `scripts/armreacher_v1.py` to get started with the environment details i.e, rewards and the observation space. Support for logging using `wandb` is provided along with the `tensorboard`. For starters, you can train the environment by: 
