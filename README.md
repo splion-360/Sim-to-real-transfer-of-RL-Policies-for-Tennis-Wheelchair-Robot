@@ -26,7 +26,7 @@ We currently provide support for the following environments and the instructions
 - [Navigation Task](#1-navigation-task)
 - [Reach Task](#2-reach-task) 
 
-Check out the [report](.papers/reports.pdf) for more information.
+Check out the [report](./papers/reports.pdf) for more information.
 </p>
 
 
